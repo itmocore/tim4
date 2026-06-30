@@ -171,7 +171,10 @@ nav a:hover::after{width:100%;}
 }
 .hero-bg{
   position:absolute; inset:0;
-  background-image:url('https://images.unsplash.com/photo-1612698093158-e07ac200d44e?q=80&w=2400&auto=format&fit=crop');
+  background-color:#1a1411;
+  background-image:
+    radial-gradient(circle at 20% 20%, rgba(201,160,99,0.1), transparent 50%),
+    url('images/hero-bg.jpg');
   background-size:cover;
   background-position:center 30%;
   opacity:0.22;
@@ -239,8 +242,8 @@ nav a:hover::after{width:100%;}
   position:relative;
   display:flex;
   align-items:center;
-  gap:20px;
-  padding:18px;
+  gap:24px;
+  padding:22px;
   border-radius:var(--radius);
   background:var(--panel);
   border:1px solid var(--panel-border);
@@ -263,14 +266,18 @@ nav a:hover::after{width:100%;}
 }
 .owner-card:hover::before{opacity:1;}
 .owner-photo{
-  width:84px; height:84px;
+  width:140px; height:140px;
   border-radius:50%;
   overflow:hidden;
   flex-shrink:0;
   border:2px solid var(--gold);
-  box-shadow:0 0 0 4px rgba(201,160,99,0.12);
+  box-shadow:0 0 0 6px rgba(201,160,99,0.12);
+  background:linear-gradient(145deg, #2a2118, #1a1411);
+  display:flex; align-items:center; justify-content:center;
 }
 .owner-photo img{width:100%; height:100%; object-fit:cover;}
+.owner-photo i{font-size:2.4rem; color:var(--gold); opacity:0.6;}
+@media(max-width:480px){ .owner-photo{width:100px; height:100px;} .owner-photo i{font-size:1.8rem;} }
 .owner-info .role{
   font-size:0.72rem;
   letter-spacing:0.1em;
@@ -319,10 +326,17 @@ section{position:relative; z-index:1; padding:120px 0;}
   position:relative;
 }
 .project-card:hover{transform:translateY(-8px); box-shadow:0 30px 60px -22px rgba(0,0,0,0.65);}
+.project-img img.img-fallback{
+  background:
+    radial-gradient(circle at 30% 20%, rgba(201,160,99,0.25), transparent 60%),
+    linear-gradient(150deg, #2a2118 0%, #181310 60%, #221a14 100%);
+  object-fit:none;
+}
 .project-img{
   height:280px;
   overflow:hidden;
   position:relative;
+  display:flex; align-items:center; justify-content:center;
 }
 .project-img img{
   width:100%; height:100%; object-fit:cover;
@@ -583,7 +597,7 @@ footer{
   border:1px solid var(--panel-border);
   background:
     linear-gradient(rgba(18,18,18,0.55), rgba(18,18,18,0.75)),
-    url('https://images.unsplash.com/photo-1517823382935-51bfcb0ec6bc?q=80&w=1200&auto=format&fit=crop') center/cover;
+    url('images/map-bg.jpg') center/cover;
   display:flex; align-items:center; justify-content:center; flex-direction:column; gap:6px;
 }
 .footer-map i{color:var(--gold); font-size:1.4rem;}
@@ -645,8 +659,9 @@ footer{
     <div class="owners">
       <div class="owner-card">
         <div class="owner-photo">
-          <!-- ССЫЛКА НА ФОТО МИХАИЛА ТИМЧЕНКО -->
-          <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=400&auto=format&fit=crop" alt="Михаил Тимченко">
+          <!-- ССЫЛКА НА ФОТО МИХАИЛА ТИМЧЕНКО: положите файл images/timchenko.jpg рядом с index.html -->
+          <img src="images/timchenko.jpg" alt="Михаил Тимченко" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+          <i class="fa-solid fa-user" style="display:none;"></i>
         </div>
         <div class="owner-info">
           <div class="role">Со-основатель · Главный архитектор</div>
@@ -656,8 +671,9 @@ footer{
       </div>
       <div class="owner-card">
         <div class="owner-photo">
-          <!-- ССЫЛКА НА ФОТО МИХАИЛА НАЧАЛЬНИКА -->
-          <img src="https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?q=80&w=400&auto=format&fit=crop" alt="Михаил Начальник">
+          <!-- ССЫЛКА НА ФОТО МИХАИЛА НАЧАЛЬНИКА: положите файл images/nachalnik.jpg рядом с index.html -->
+          <img src="images/nachalnik.jpg" alt="Михаил Начальник" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+          <i class="fa-solid fa-user" style="display:none;"></i>
         </div>
         <div class="owner-info">
           <div class="role">Со-основатель · Производство</div>
@@ -682,7 +698,7 @@ footer{
       <div class="project-card reveal">
         <div class="project-img">
           <span class="project-tag">Кедровая баня</span>
-          <img src="https://images.unsplash.com/photo-1551516594-56cb78394645?q=80&w=1200&auto=format&fit=crop" alt="Баня Кедровая резиденция">
+          <img src="images/project-1.jpg" alt="Баня Кедровая резиденция" onerror="this.classList.add('img-fallback')">
         </div>
         <div class="project-body">
           <h3>«Кедровая резиденция»</h3>
@@ -698,7 +714,7 @@ footer{
       <div class="project-card reveal">
         <div class="project-img">
           <span class="project-tag">Баня со спа</span>
-          <img src="https://images.unsplash.com/photo-1571902943202-507ec2618e8f?q=80&w=1200&auto=format&fit=crop" alt="Баня со спа зоной">
+          <img src="images/project-2.jpg" alt="Баня со спа зоной" onerror="this.classList.add('img-fallback')">
         </div>
         <div class="project-body">
           <h3>«Northern Spa»</h3>
@@ -714,7 +730,7 @@ footer{
       <div class="project-card reveal">
         <div class="project-img">
           <span class="project-tag">Минимализм</span>
-          <img src="https://images.unsplash.com/photo-1601921329890-9b78b9da6f0f?q=80&w=1200&auto=format&fit=crop" alt="Минималистичная баня">
+          <img src="images/project-3.jpg" alt="Минималистичная баня" onerror="this.classList.add('img-fallback')">
         </div>
         <div class="project-body">
           <h3>«Чёрный куб»</h3>
@@ -730,7 +746,7 @@ footer{
       <div class="project-card reveal">
         <div class="project-img">
           <span class="project-tag">Премиум</span>
-          <img src="https://images.unsplash.com/photo-1604014237800-1c9102c219da?q=80&w=1200&auto=format&fit=crop" alt="Премиальная баня с купелью">
+          <img src="images/project-4.jpg" alt="Премиальная баня с купелью" onerror="this.classList.add('img-fallback')">
         </div>
         <div class="project-body">
           <h3>«Усадьба у воды»</h3>
@@ -746,7 +762,7 @@ footer{
       <div class="project-card reveal">
         <div class="project-img">
           <span class="project-tag">Компактная</span>
-          <img src="https://images.unsplash.com/photo-1595274459742-4a41d65fb1c8?q=80&w=1200&auto=format&fit=crop" alt="Компактная баня в лесу">
+          <img src="images/project-5.jpg" alt="Компактная баня в лесу" onerror="this.classList.add('img-fallback')">
         </div>
         <div class="project-body">
           <h3>«Лесная капсула»</h3>
@@ -762,7 +778,7 @@ footer{
       <div class="project-card reveal">
         <div class="project-img">
           <span class="project-tag">Семейная</span>
-          <img src="https://images.unsplash.com/photo-1542718610-a1d656d1884c?q=80&w=1200&auto=format&fit=crop" alt="Семейная баня с террасой">
+          <img src="images/project-6.jpg" alt="Семейная баня с террасой" onerror="this.classList.add('img-fallback')">
         </div>
         <div class="project-body">
           <h3>«Большая семья»</h3>
