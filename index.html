@@ -1,0 +1,1065 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ТИМЧЕНКО & НАЧАЛЬНИК — Премиальные бани в Подмосковье</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600&family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<style>
+:root{
+  --bg: #121212;
+  --bg-soft: #1a1714;
+  --panel: rgba(255,255,255,0.04);
+  --panel-border: rgba(212,175,116,0.18);
+  --wood: #8a5a35;
+  --gold: #c9a063;
+  --gold-light: #e9d3a3;
+  --text: #f3efe8;
+  --text-dim: #b3aa9c;
+  --radius: 18px;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  background:var(--bg);
+  color:var(--text);
+  font-family:'Manrope',sans-serif;
+  font-weight:400;
+  overflow-x:hidden;
+}
+h1,h2,h3,.display{
+  font-family:'Fraunces',serif;
+  font-weight:500;
+  letter-spacing:-0.01em;
+}
+a{color:inherit;text-decoration:none;}
+img{display:block;max-width:100%;}
+.container{
+  max-width:1280px;
+  margin:0 auto;
+  padding:0 40px;
+}
+@media(max-width:768px){ .container{padding:0 20px;} }
+
+::selection{background:var(--gold); color:#1a1714;}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce){
+  *{animation-duration:0.01ms !important; animation-iteration-count:1 !important; transition-duration:0.01ms !important;}
+}
+
+/* ============ BACKGROUND TEXTURE ============ */
+body::before{
+  content:"";
+  position:fixed;
+  inset:0;
+  background:
+    radial-gradient(circle at 15% 10%, rgba(201,160,99,0.07), transparent 45%),
+    radial-gradient(circle at 85% 30%, rgba(138,90,53,0.08), transparent 50%);
+  pointer-events:none;
+  z-index:0;
+}
+
+/* ============ HEADER ============ */
+header{
+  position:fixed;
+  top:0; left:0; right:0;
+  z-index:100;
+  padding:22px 0;
+  transition:all .4s ease;
+}
+header.scrolled{
+  background:rgba(18,18,18,0.72);
+  backdrop-filter:blur(18px) saturate(140%);
+  -webkit-backdrop-filter:blur(18px) saturate(140%);
+  border-bottom:1px solid var(--panel-border);
+  padding:14px 0;
+}
+.header-inner{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:24px;
+}
+.logo{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  font-family:'Fraunces',serif;
+  font-size:1.2rem;
+  font-weight:600;
+  letter-spacing:0.02em;
+  white-space:nowrap;
+}
+.logo i{color:var(--gold);}
+nav{display:flex;gap:34px;}
+nav a{
+  font-size:0.92rem;
+  color:var(--text-dim);
+  position:relative;
+  transition:color .3s;
+}
+nav a:hover{color:var(--gold-light);}
+nav a::after{
+  content:"";
+  position:absolute; left:0; bottom:-6px;
+  width:0; height:1px;
+  background:var(--gold);
+  transition:width .3s;
+}
+nav a:hover::after{width:100%;}
+.header-right{display:flex; align-items:center; gap:22px;}
+.phone{
+  font-size:0.95rem;
+  font-weight:600;
+  display:flex; align-items:center; gap:8px;
+  white-space:nowrap;
+}
+.phone i{color:var(--gold);}
+.btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:8px;
+  padding:13px 26px;
+  border-radius:100px;
+  font-size:0.9rem;
+  font-weight:600;
+  cursor:pointer;
+  border:none;
+  transition:all .35s cubic-bezier(.2,.8,.2,1);
+  white-space:nowrap;
+}
+.btn-gold{
+  background:linear-gradient(135deg, var(--gold-light), var(--gold) 60%, var(--wood));
+  color:#1a1108;
+  box-shadow:0 8px 24px -8px rgba(201,160,99,0.55);
+}
+.btn-gold:hover{
+  transform:translateY(-2px);
+  box-shadow:0 14px 32px -8px rgba(201,160,99,0.7);
+}
+.btn-ghost{
+  background:var(--panel);
+  border:1px solid var(--panel-border);
+  color:var(--text);
+  backdrop-filter:blur(10px);
+}
+.btn-ghost:hover{
+  background:rgba(255,255,255,0.08);
+  border-color:var(--gold);
+}
+.burger{display:none; font-size:1.4rem; color:var(--gold-light); cursor:pointer;}
+@media(max-width:980px){
+  nav{display:none;}
+  .phone{display:none;}
+  .burger{display:block;}
+}
+
+/* ============ HERO ============ */
+.hero{
+  position:relative;
+  min-height:100vh;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  padding:170px 0 80px;
+  z-index:1;
+  overflow:hidden;
+}
+.hero-bg{
+  position:absolute; inset:0;
+  background-image:url('https://images.unsplash.com/photo-1612698093158-e07ac200d44e?q=80&w=2400&auto=format&fit=crop');
+  background-size:cover;
+  background-position:center 30%;
+  opacity:0.22;
+  filter:saturate(1.1) contrast(1.05);
+  z-index:-1;
+  mask-image:linear-gradient(to bottom, black 0%, black 55%, transparent 100%);
+}
+.hero-bg::after{
+  content:"";
+  position:absolute; inset:0;
+  background:linear-gradient(180deg, rgba(18,18,18,0.4) 0%, var(--bg) 100%);
+}
+.eyebrow{
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+  font-size:0.78rem;
+  letter-spacing:0.18em;
+  text-transform:uppercase;
+  color:var(--gold-light);
+  margin-bottom:26px;
+  padding:8px 16px;
+  border:1px solid var(--panel-border);
+  border-radius:100px;
+  background:var(--panel);
+  backdrop-filter:blur(10px);
+  width:fit-content;
+}
+.eyebrow .dot{width:6px;height:6px;border-radius:50%;background:var(--gold); box-shadow:0 0 10px var(--gold);}
+
+.hero h1{
+  font-size:clamp(2.4rem, 5.4vw, 4.6rem);
+  line-height:1.05;
+  max-width:920px;
+  margin-bottom:26px;
+}
+.hero h1 .accent{
+  font-style:italic;
+  background:linear-gradient(100deg, var(--gold-light), var(--gold) 50%, var(--wood));
+  -webkit-background-clip:text;
+  background-clip:text;
+  color:transparent;
+}
+.hero-sub{
+  font-size:1.12rem;
+  color:var(--text-dim);
+  max-width:560px;
+  line-height:1.65;
+  margin-bottom:38px;
+}
+.hero-cta{display:flex; gap:18px; align-items:center; flex-wrap:wrap; margin-bottom:80px;}
+.hero-cta .btn-gold{padding:18px 34px; font-size:0.98rem;}
+.hero-cta .micro{font-size:0.85rem; color:var(--text-dim);}
+
+/* Owners */
+.owners{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:26px;
+  max-width:980px;
+}
+@media(max-width:760px){ .owners{grid-template-columns:1fr;} }
+
+.owner-card{
+  position:relative;
+  display:flex;
+  align-items:center;
+  gap:20px;
+  padding:18px;
+  border-radius:var(--radius);
+  background:var(--panel);
+  border:1px solid var(--panel-border);
+  backdrop-filter:blur(16px) saturate(150%);
+  -webkit-backdrop-filter:blur(16px) saturate(150%);
+  transition:transform .4s cubic-bezier(.2,.8,.2,1), box-shadow .4s, border-color .4s;
+  overflow:hidden;
+}
+.owner-card::before{
+  content:"";
+  position:absolute; inset:0;
+  background:linear-gradient(135deg, rgba(201,160,99,0.12), transparent 60%);
+  opacity:0;
+  transition:opacity .4s;
+}
+.owner-card:hover{
+  transform:translateY(-6px);
+  border-color:var(--gold);
+  box-shadow:0 22px 50px -18px rgba(0,0,0,0.6);
+}
+.owner-card:hover::before{opacity:1;}
+.owner-photo{
+  width:84px; height:84px;
+  border-radius:50%;
+  overflow:hidden;
+  flex-shrink:0;
+  border:2px solid var(--gold);
+  box-shadow:0 0 0 4px rgba(201,160,99,0.12);
+}
+.owner-photo img{width:100%; height:100%; object-fit:cover;}
+.owner-info .role{
+  font-size:0.72rem;
+  letter-spacing:0.1em;
+  text-transform:uppercase;
+  color:var(--gold-light);
+  margin-bottom:4px;
+}
+.owner-info .name{
+  font-family:'Fraunces',serif;
+  font-size:1.18rem;
+  font-weight:500;
+  margin-bottom:4px;
+}
+.owner-info .quote{
+  font-size:0.85rem;
+  color:var(--text-dim);
+  line-height:1.4;
+}
+
+/* ============ SECTION GENERIC ============ */
+section{position:relative; z-index:1; padding:120px 0;}
+@media(max-width:768px){ section{padding:80px 0;} }
+.section-head{
+  max-width:680px;
+  margin-bottom:64px;
+}
+.section-head .eyebrow{margin-bottom:18px;}
+.section-head h2{font-size:clamp(1.9rem,3.4vw,2.8rem); line-height:1.15; margin-bottom:18px;}
+.section-head p{color:var(--text-dim); font-size:1.05rem; line-height:1.6;}
+
+/* ============ GALLERY ============ */
+.gallery-grid{
+  display:grid;
+  grid-template-columns:repeat(3, 1fr);
+  gap:28px;
+}
+@media(max-width:980px){ .gallery-grid{grid-template-columns:repeat(2,1fr);} }
+@media(max-width:640px){ .gallery-grid{grid-template-columns:1fr;} }
+
+.project-card{
+  border-radius:var(--radius);
+  overflow:hidden;
+  background:var(--bg-soft);
+  border:1px solid var(--panel-border);
+  transition:transform .45s cubic-bezier(.2,.8,.2,1), box-shadow .45s;
+  position:relative;
+}
+.project-card:hover{transform:translateY(-8px); box-shadow:0 30px 60px -22px rgba(0,0,0,0.65);}
+.project-img{
+  height:280px;
+  overflow:hidden;
+  position:relative;
+}
+.project-img img{
+  width:100%; height:100%; object-fit:cover;
+  transition:transform .7s cubic-bezier(.2,.8,.2,1);
+}
+.project-card:hover .project-img img{transform:scale(1.08);}
+.project-img::after{
+  content:"";
+  position:absolute; inset:0;
+  background:linear-gradient(180deg, transparent 40%, rgba(18,18,18,0.85) 100%);
+}
+.project-tag{
+  position:absolute; top:16px; left:16px;
+  font-size:0.7rem; letter-spacing:0.08em; text-transform:uppercase;
+  background:rgba(18,18,18,0.65);
+  backdrop-filter:blur(8px);
+  padding:6px 12px; border-radius:100px;
+  border:1px solid var(--panel-border);
+  z-index:2; color:var(--gold-light);
+}
+.project-body{padding:26px;}
+.project-body h3{font-size:1.3rem; margin-bottom:10px;}
+.project-meta{display:flex; gap:18px; margin-bottom:20px; font-size:0.86rem; color:var(--text-dim);}
+.project-meta span{display:flex; align-items:center; gap:6px;}
+.project-meta i{color:var(--gold);}
+.project-price{
+  font-family:'Fraunces',serif;
+  font-size:1.3rem;
+  color:var(--gold-light);
+  margin-bottom:20px;
+}
+.project-price small{font-family:'Manrope',sans-serif; font-size:0.7rem; color:var(--text-dim); display:block; text-transform:uppercase; letter-spacing:0.06em;}
+.link-arrow{
+  display:inline-flex; align-items:center; gap:8px;
+  font-size:0.88rem; font-weight:600; color:var(--gold-light);
+  transition:gap .3s;
+}
+.link-arrow:hover{gap:14px;}
+
+/* ============ ADVANTAGES ============ */
+.adv-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:22px;
+}
+@media(max-width:980px){ .adv-grid{grid-template-columns:repeat(2,1fr);} }
+@media(max-width:560px){ .adv-grid{grid-template-columns:1fr;} }
+.adv-card{
+  padding:32px 26px;
+  border-radius:var(--radius);
+  background:var(--panel);
+  border:1px solid var(--panel-border);
+  backdrop-filter:blur(12px);
+  transition:transform .4s, border-color .4s, background .4s;
+}
+.adv-card:hover{
+  transform:translateY(-6px);
+  border-color:var(--gold);
+  background:rgba(201,160,99,0.06);
+}
+.adv-icon{
+  width:54px; height:54px;
+  border-radius:14px;
+  display:flex; align-items:center; justify-content:center;
+  background:linear-gradient(135deg, rgba(201,160,99,0.22), rgba(138,90,53,0.12));
+  color:var(--gold-light);
+  font-size:1.3rem;
+  margin-bottom:22px;
+}
+.adv-card h3{font-size:1.08rem; margin-bottom:10px; font-weight:600; font-family:'Manrope',sans-serif;}
+.adv-card p{font-size:0.9rem; color:var(--text-dim); line-height:1.55;}
+
+/* ============ CALCULATOR ============ */
+.calc-wrap{
+  border-radius:24px;
+  background:linear-gradient(145deg, rgba(255,255,255,0.05), rgba(255,255,255,0.02));
+  border:1px solid var(--panel-border);
+  backdrop-filter:blur(20px);
+  padding:48px;
+  position:relative;
+  overflow:hidden;
+}
+@media(max-width:768px){ .calc-wrap{padding:28px 22px;} }
+.calc-wrap::before{
+  content:"";
+  position:absolute; top:-100px; right:-100px;
+  width:320px; height:320px;
+  background:radial-gradient(circle, rgba(201,160,99,0.18), transparent 70%);
+  pointer-events:none;
+}
+.calc-steps{display:flex; gap:10px; margin-bottom:40px; flex-wrap:wrap;}
+.calc-step-dot{
+  font-size:0.78rem; letter-spacing:0.05em; text-transform:uppercase;
+  padding:8px 16px; border-radius:100px;
+  border:1px solid var(--panel-border);
+  color:var(--text-dim);
+}
+.calc-step-dot.active{
+  border-color:var(--gold);
+  color:var(--gold-light);
+  background:rgba(201,160,99,0.1);
+}
+.calc-grid{
+  display:grid;
+  grid-template-columns:1.1fr 0.9fr;
+  gap:48px;
+}
+@media(max-width:880px){ .calc-grid{grid-template-columns:1fr;} }
+
+.calc-group{margin-bottom:34px;}
+.calc-group > label{
+  display:block; font-size:0.78rem; text-transform:uppercase; letter-spacing:0.08em;
+  color:var(--text-dim); margin-bottom:16px;
+}
+.option-row{display:flex; gap:12px; flex-wrap:wrap;}
+.option{
+  padding:13px 20px;
+  border-radius:12px;
+  border:1px solid var(--panel-border);
+  background:rgba(255,255,255,0.02);
+  cursor:pointer;
+  font-size:0.9rem;
+  transition:all .3s;
+  user-select:none;
+}
+.option:hover{border-color:var(--gold);}
+.option.selected{
+  border-color:var(--gold);
+  background:linear-gradient(135deg, rgba(201,160,99,0.22), rgba(138,90,53,0.1));
+  color:var(--gold-light);
+  font-weight:600;
+}
+.calc-summary{
+  border-radius:18px;
+  background:rgba(0,0,0,0.25);
+  border:1px solid var(--panel-border);
+  padding:32px;
+  align-self:start;
+  position:sticky;
+  top:120px;
+}
+.calc-summary .label{font-size:0.78rem; text-transform:uppercase; letter-spacing:0.08em; color:var(--text-dim); margin-bottom:8px;}
+.calc-price{
+  font-family:'Fraunces',serif;
+  font-size:2.5rem;
+  color:var(--gold-light);
+  margin-bottom:6px;
+  transition:opacity .2s;
+}
+.calc-price-note{font-size:0.82rem; color:var(--text-dim); margin-bottom:28px;}
+.calc-list{list-style:none; margin-bottom:30px;}
+.calc-list li{
+  display:flex; justify-content:space-between;
+  padding:10px 0; border-bottom:1px solid rgba(255,255,255,0.06);
+  font-size:0.88rem; color:var(--text-dim);
+}
+.calc-list li span:last-child{color:var(--text);}
+.calc-summary .btn-gold{width:100%;}
+
+/* ============ PROCESS + FORM ============ */
+.process-form{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:70px;
+}
+@media(max-width:980px){ .process-form{grid-template-columns:1fr; gap:60px;} }
+
+.steps-list{list-style:none; counter-reset:step;}
+.step-item{
+  display:flex; gap:22px;
+  padding-bottom:38px;
+  position:relative;
+}
+.step-item:not(:last-child)::before{
+  content:"";
+  position:absolute; left:21px; top:50px; bottom:0;
+  width:1px;
+  background:linear-gradient(180deg, var(--gold), transparent);
+}
+.step-num{
+  counter-increment:step;
+  flex-shrink:0;
+  width:44px; height:44px;
+  border-radius:50%;
+  border:1px solid var(--gold);
+  display:flex; align-items:center; justify-content:center;
+  font-family:'Fraunces',serif;
+  color:var(--gold-light);
+  font-size:1rem;
+  background:rgba(201,160,99,0.08);
+}
+.step-text h3{font-size:1.08rem; margin-bottom:6px; font-weight:600; font-family:'Manrope',sans-serif;}
+.step-text p{font-size:0.9rem; color:var(--text-dim); line-height:1.55;}
+
+.form-panel{
+  border-radius:22px;
+  padding:42px;
+  background:linear-gradient(165deg, rgba(255,255,255,0.05), rgba(255,255,255,0.015));
+  border:1px solid var(--panel-border);
+  backdrop-filter:blur(18px);
+}
+@media(max-width:768px){ .form-panel{padding:28px 22px;} }
+.form-panel h3{font-size:1.5rem; margin-bottom:10px;}
+.form-panel .desc{color:var(--text-dim); font-size:0.92rem; margin-bottom:30px;}
+.field{margin-bottom:20px;}
+.field label{display:block; font-size:0.78rem; text-transform:uppercase; letter-spacing:0.06em; color:var(--text-dim); margin-bottom:8px;}
+.field input{
+  width:100%;
+  padding:14px 16px;
+  border-radius:10px;
+  background:rgba(0,0,0,0.25);
+  border:1px solid var(--panel-border);
+  color:var(--text);
+  font-family:'Manrope',sans-serif;
+  font-size:0.95rem;
+  transition:border-color .3s, background .3s;
+}
+.field input:focus{
+  outline:none;
+  border-color:var(--gold);
+  background:rgba(0,0,0,0.35);
+}
+.field input::placeholder{color:#6b6358;}
+.form-panel .btn-gold{width:100%; padding:16px; margin-top:8px;}
+.form-note{font-size:0.76rem; color:#6b6358; margin-top:16px; text-align:center; line-height:1.5;}
+.form-success{
+  display:none;
+  text-align:center;
+  padding:40px 0;
+}
+.form-success i{font-size:2.6rem; color:var(--gold); margin-bottom:16px;}
+.form-success h3{margin-bottom:8px;}
+.form-success p{color:var(--text-dim); font-size:0.92rem;}
+
+/* ============ FOOTER ============ */
+footer{
+  position:relative; z-index:1;
+  padding:90px 0 30px;
+  background:var(--bg-soft);
+  border-top:1px solid var(--panel-border);
+}
+.footer-grid{
+  display:grid;
+  grid-template-columns:1.4fr 1fr 1fr 1.2fr;
+  gap:50px;
+  margin-bottom:70px;
+}
+@media(max-width:880px){ .footer-grid{grid-template-columns:1fr 1fr; row-gap:46px;} }
+@media(max-width:560px){ .footer-grid{grid-template-columns:1fr;} }
+.footer-grid h4{font-size:0.82rem; text-transform:uppercase; letter-spacing:0.08em; color:var(--gold-light); margin-bottom:20px;}
+.footer-grid p, .footer-grid a{display:block; font-size:0.9rem; color:var(--text-dim); margin-bottom:12px; transition:color .3s;}
+.footer-grid a:hover{color:var(--gold-light);}
+.footer-map{
+  border-radius:16px;
+  overflow:hidden;
+  height:160px;
+  position:relative;
+  border:1px solid var(--panel-border);
+  background:
+    linear-gradient(rgba(18,18,18,0.55), rgba(18,18,18,0.75)),
+    url('https://images.unsplash.com/photo-1517823382935-51bfcb0ec6bc?q=80&w=1200&auto=format&fit=crop') center/cover;
+  display:flex; align-items:center; justify-content:center; flex-direction:column; gap:6px;
+}
+.footer-map i{color:var(--gold); font-size:1.4rem;}
+.footer-map span{font-size:0.82rem; color:var(--text-dim);}
+.social-row{display:flex; gap:12px; margin-top:18px;}
+.social-row a{
+  width:38px; height:38px;
+  border-radius:50%;
+  border:1px solid var(--panel-border);
+  display:flex; align-items:center; justify-content:center;
+  margin-bottom:0;
+  transition:all .3s;
+}
+.social-row a:hover{border-color:var(--gold); background:rgba(201,160,99,0.12); transform:translateY(-3px);}
+.footer-bottom{
+  display:flex; justify-content:space-between; align-items:center;
+  padding-top:30px; border-top:1px solid rgba(255,255,255,0.06);
+  font-size:0.8rem; color:#6b6358; flex-wrap:wrap; gap:12px;
+}
+
+/* fade-in on scroll */
+.reveal{opacity:0; transform:translateY(28px); transition:opacity .8s ease, transform .8s cubic-bezier(.2,.8,.2,1);}
+.reveal.visible{opacity:1; transform:translateY(0);}
+</style>
+</head>
+<body>
+
+<header id="siteHeader">
+  <div class="container header-inner">
+    <div class="logo"><i class="fa-solid fa-fire"></i> ТИМЧЕНКО &amp; НАЧАЛЬНИК</div>
+    <nav>
+      <a href="#projects">Проекты</a>
+      <a href="#advantages">Преимущества</a>
+      <a href="#calculator">Калькулятор</a>
+      <a href="#process">Этапы</a>
+      <a href="#contact">Контакты</a>
+    </nav>
+    <div class="header-right">
+      <a class="phone" href="tel:+74950000000"><i class="fa-solid fa-phone"></i> +7 (495) 000-00-00</a>
+      <button class="btn btn-gold" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Вызвать инженера</button>
+      <i class="burger fa-solid fa-bars" onclick="document.querySelector('nav').style.display='flex'"></i>
+    </div>
+  </div>
+</header>
+
+<!-- ============ HERO ============ -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="container">
+    <div class="eyebrow"><span class="dot"></span> Премиальное строительство бань · Подмосковье</div>
+    <h1>Строим бани, <span class="accent">в которых оживает душа</span></h1>
+    <p class="hero-sub">Авторские проекты из кедра, лиственницы и термодерева. Полный цикл: от архитектурной концепции до банного ритуала под ключ — без подрядчиков-посредников и компромиссов в качестве.</p>
+    <div class="hero-cta">
+      <button class="btn btn-gold" onclick="document.getElementById('calculator').scrollIntoView({behavior:'smooth'})">Рассчитать стоимость <i class="fa-solid fa-arrow-right"></i></button>
+      <button class="btn btn-ghost" onclick="document.getElementById('projects').scrollIntoView({behavior:'smooth'})">Смотреть проекты</button>
+      <span class="micro">68 бань построено · гарантия 10 лет</span>
+    </div>
+
+    <div class="owners">
+      <div class="owner-card">
+        <div class="owner-photo">
+          <!-- ССЫЛКА НА ФОТО МИХАИЛА ТИМЧЕНКО -->
+          <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=400&auto=format&fit=crop" alt="Михаил Тимченко">
+        </div>
+        <div class="owner-info">
+          <div class="role">Со-основатель · Главный архитектор</div>
+          <div class="name">Михаил Тимченко</div>
+          <div class="quote">«Баня — это архитектура тишины. Каждый венец имеет значение»</div>
+        </div>
+      </div>
+      <div class="owner-card">
+        <div class="owner-photo">
+          <!-- ССЫЛКА НА ФОТО МИХАИЛА НАЧАЛЬНИКА -->
+          <img src="https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?q=80&w=400&auto=format&fit=crop" alt="Михаил Начальник">
+        </div>
+        <div class="owner-info">
+          <div class="role">Со-основатель · Производство</div>
+          <div class="name">Михаил Начальник</div>
+          <div class="quote">«Контролирую каждый этап лично — от леса до последнего гвоздя»</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ GALLERY ============ -->
+<section id="projects">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="eyebrow"><span class="dot"></span> Каталог проектов</div>
+      <h2>Реализованные объекты</h2>
+      <p>Каждый проект — индивидуальная архитектура, адаптированная под рельеф участка и характер заказчика.</p>
+    </div>
+    <div class="gallery-grid">
+
+      <div class="project-card reveal">
+        <div class="project-img">
+          <span class="project-tag">Кедровая баня</span>
+          <img src="https://images.unsplash.com/photo-1551516594-56cb78394645?q=80&w=1200&auto=format&fit=crop" alt="Баня Кедровая резиденция">
+        </div>
+        <div class="project-body">
+          <h3>«Кедровая резиденция»</h3>
+          <div class="project-meta">
+            <span><i class="fa-solid fa-ruler-combined"></i> 64 м²</span>
+            <span><i class="fa-solid fa-tree"></i> Кедр / Лиственница</span>
+          </div>
+          <div class="project-price"><small>стоимость от</small>5 400 000 ₽</div>
+          <a class="link-arrow" href="#contact">Смотреть проект <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+      </div>
+
+      <div class="project-card reveal">
+        <div class="project-img">
+          <span class="project-tag">Баня со спа</span>
+          <img src="https://images.unsplash.com/photo-1571902943202-507ec2618e8f?q=80&w=1200&auto=format&fit=crop" alt="Баня со спа зоной">
+        </div>
+        <div class="project-body">
+          <h3>«Northern Spa»</h3>
+          <div class="project-meta">
+            <span><i class="fa-solid fa-ruler-combined"></i> 88 м²</span>
+            <span><i class="fa-solid fa-tree"></i> Термодерево</span>
+          </div>
+          <div class="project-price"><small>стоимость от</small>8 900 000 ₽</div>
+          <a class="link-arrow" href="#contact">Смотреть проект <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+      </div>
+
+      <div class="project-card reveal">
+        <div class="project-img">
+          <span class="project-tag">Минимализм</span>
+          <img src="https://images.unsplash.com/photo-1601921329890-9b78b9da6f0f?q=80&w=1200&auto=format&fit=crop" alt="Минималистичная баня">
+        </div>
+        <div class="project-body">
+          <h3>«Чёрный куб»</h3>
+          <div class="project-meta">
+            <span><i class="fa-solid fa-ruler-combined"></i> 52 м²</span>
+            <span><i class="fa-solid fa-tree"></i> Обожжённое дерево</span>
+          </div>
+          <div class="project-price"><small>стоимость от</small>4 700 000 ₽</div>
+          <a class="link-arrow" href="#contact">Смотреть проект <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+      </div>
+
+      <div class="project-card reveal">
+        <div class="project-img">
+          <span class="project-tag">Премиум</span>
+          <img src="https://images.unsplash.com/photo-1604014237800-1c9102c219da?q=80&w=1200&auto=format&fit=crop" alt="Премиальная баня с купелью">
+        </div>
+        <div class="project-body">
+          <h3>«Усадьба у воды»</h3>
+          <div class="project-meta">
+            <span><i class="fa-solid fa-ruler-combined"></i> 120 м²</span>
+            <span><i class="fa-solid fa-tree"></i> Кедр + камень</span>
+          </div>
+          <div class="project-price"><small>стоимость от</small>13 200 000 ₽</div>
+          <a class="link-arrow" href="#contact">Смотреть проект <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+      </div>
+
+      <div class="project-card reveal">
+        <div class="project-img">
+          <span class="project-tag">Компактная</span>
+          <img src="https://images.unsplash.com/photo-1595274459742-4a41d65fb1c8?q=80&w=1200&auto=format&fit=crop" alt="Компактная баня в лесу">
+        </div>
+        <div class="project-body">
+          <h3>«Лесная капсула»</h3>
+          <div class="project-meta">
+            <span><i class="fa-solid fa-ruler-combined"></i> 34 м²</span>
+            <span><i class="fa-solid fa-tree"></i> Сосна</span>
+          </div>
+          <div class="project-price"><small>стоимость от</small>2 950 000 ₽</div>
+          <a class="link-arrow" href="#contact">Смотреть проект <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+      </div>
+
+      <div class="project-card reveal">
+        <div class="project-img">
+          <span class="project-tag">Семейная</span>
+          <img src="https://images.unsplash.com/photo-1542718610-a1d656d1884c?q=80&w=1200&auto=format&fit=crop" alt="Семейная баня с террасой">
+        </div>
+        <div class="project-body">
+          <h3>«Большая семья»</h3>
+          <div class="project-meta">
+            <span><i class="fa-solid fa-ruler-combined"></i> 96 м²</span>
+            <span><i class="fa-solid fa-tree"></i> Лиственница</span>
+          </div>
+          <div class="project-price"><small>стоимость от</small>9 600 000 ₽</div>
+          <a class="link-arrow" href="#contact">Смотреть проект <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============ ADVANTAGES ============ -->
+<section id="advantages">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="eyebrow"><span class="dot"></span> Почему мы</div>
+      <h2>Уникальные преимущества</h2>
+      <p>Мы не нанимаем бригады со стороны — собственное производство и личный контроль на каждом этапе.</p>
+    </div>
+    <div class="adv-grid">
+      <div class="adv-card reveal">
+        <div class="adv-icon"><i class="fa-solid fa-tree"></i></div>
+        <h3>Собственный лесозаготовительный участок</h3>
+        <p>Отбираем лес лично, без посредников — гарантия породы и влажности древесины.</p>
+      </div>
+      <div class="adv-card reveal">
+        <div class="adv-icon"><i class="fa-solid fa-user-tie"></i></div>
+        <h3>Личный контроль владельцев</h3>
+        <p>Михаил Тимченко и Михаил Начальник лично выезжают на каждый объект.</p>
+      </div>
+      <div class="adv-card reveal">
+        <div class="adv-icon"><i class="fa-solid fa-shield-halved"></i></div>
+        <h3>Гарантия 10 лет</h3>
+        <p>На сруб и кровлю — письменная гарантия с фиксацией в договоре.</p>
+      </div>
+      <div class="adv-card reveal">
+        <div class="adv-icon"><i class="fa-solid fa-stopwatch"></i></div>
+        <h3>Срок от 45 дней</h3>
+        <p>Параллельное производство сруба и фундамента сокращает сроки вдвое.</p>
+      </div>
+      <div class="adv-card reveal">
+        <div class="adv-icon"><i class="fa-solid fa-fire-flame-curved"></i></div>
+        <h3>Аутентичная парная</h3>
+        <p>Печи и каменка собираются по классической рецептуре банного мастера.</p>
+      </div>
+      <div class="adv-card reveal">
+        <div class="adv-icon"><i class="fa-solid fa-file-contract"></i></div>
+        <h3>Прозрачная смета</h3>
+        <p>Фиксированная цена в договоре — без скрытых доплат на стройке.</p>
+      </div>
+      <div class="adv-card reveal">
+        <div class="adv-icon"><i class="fa-solid fa-compass-drafting"></i></div>
+        <h3>Индивидуальный проект</h3>
+        <p>Архитектор адаптирует планировку под участок и пожелания заказчика.</p>
+      </div>
+      <div class="adv-card reveal">
+        <div class="adv-icon"><i class="fa-solid fa-droplet"></i></div>
+        <h3>Купель и террасы</h3>
+        <p>Проектируем полный банный комплекс: купель, террасу, зону отдыха.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CALCULATOR ============ -->
+<section id="calculator">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="eyebrow"><span class="dot"></span> Калькулятор</div>
+      <h2>Рассчитайте стоимость бани</h2>
+      <p>Ориентировочный расчёт за 30 секунд. Точную смету подготовим после выезда инженера.</p>
+    </div>
+
+    <div class="calc-wrap reveal">
+      <div class="calc-steps">
+        <div class="calc-step-dot active">1. Размер</div>
+        <div class="calc-step-dot active">2. Материал</div>
+        <div class="calc-step-dot active">3. Комплектация</div>
+      </div>
+
+      <div class="calc-grid">
+        <div>
+          <div class="calc-group">
+            <label>Площадь бани</label>
+            <div class="option-row" data-group="size">
+              <div class="option selected" data-value="30" data-base="2200000">До 30 м²</div>
+              <div class="option" data-value="50" data-base="3600000">30–50 м²</div>
+              <div class="option" data-value="80" data-base="5800000">50–80 м²</div>
+              <div class="option" data-value="120" data-base="9200000">80–120 м²</div>
+            </div>
+          </div>
+          <div class="calc-group">
+            <label>Материал сруба</label>
+            <div class="option-row" data-group="material">
+              <div class="option selected" data-value="Сосна" data-mult="1">Сосна</div>
+              <div class="option" data-value="Лиственница" data-mult="1.22">Лиственница</div>
+              <div class="option" data-value="Кедр" data-mult="1.48">Кедр</div>
+              <div class="option" data-value="Термодерево" data-mult="1.35">Термодерево</div>
+            </div>
+          </div>
+          <div class="calc-group">
+            <label>Комплектация</label>
+            <div class="option-row" data-group="package">
+              <div class="option selected" data-value="Базовая" data-mult="1">Базовая</div>
+              <div class="option" data-value="Комфорт" data-mult="1.18">Комфорт + купель</div>
+              <div class="option" data-value="Премиум" data-mult="1.4">Премиум + спа-зона</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="calc-summary">
+          <div class="label">Ориентировочная стоимость</div>
+          <div class="calc-price" id="calcPrice">2 200 000 ₽</div>
+          <div class="calc-price-note">Финальная цена фиксируется в договоре после выезда инженера</div>
+          <ul class="calc-list">
+            <li><span>Площадь</span><span id="sumSize">До 30 м²</span></li>
+            <li><span>Материал</span><span id="sumMaterial">Сосна</span></li>
+            <li><span>Комплектация</span><span id="sumPackage">Базовая</span></li>
+          </ul>
+          <button class="btn btn-gold" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Получить точную смету</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PROCESS + FORM ============ -->
+<section id="process">
+  <div class="container">
+    <div class="process-form">
+      <div class="reveal">
+        <div class="eyebrow"><span class="dot"></span> Как мы работаем</div>
+        <h2 style="font-size:clamp(1.9rem,3.4vw,2.6rem); margin:18px 0 40px;">Этапы строительства</h2>
+        <ul class="steps-list">
+          <li class="step-item">
+            <div class="step-num">1</div>
+            <div class="step-text"><h3>Выезд инженера и замеры</h3><p>Анализируем участок, грунт, подъездные пути. Бесплатно в пределах Подмосковья.</p></div>
+          </li>
+          <li class="step-item">
+            <div class="step-num">2</div>
+            <div class="step-text"><h3>Архитектурный проект</h3><p>Михаил Тимченко лично разрабатывает планировку и 3D-визуализацию.</p></div>
+          </li>
+          <li class="step-item">
+            <div class="step-num">3</div>
+            <div class="step-text"><h3>Заготовка материала</h3><p>Отбираем брёвна с собственного участка под характеристики проекта.</p></div>
+          </li>
+          <li class="step-item">
+            <div class="step-num">4</div>
+            <div class="step-text"><h3>Сборка сруба и кровли</h3><p>Собственная бригада, контроль производства Михаилом Начальником.</p></div>
+          </li>
+          <li class="step-item">
+            <div class="step-num">5</div>
+            <div class="step-text"><h3>Отделка и банное оборудование</h3><p>Печь, полки, освещение, купель — сдаём баню «под ключ» и под пар.</p></div>
+          </li>
+        </ul>
+      </div>
+
+      <div class="form-panel reveal" id="contact">
+        <div id="formStep">
+          <h3>Заказать консультацию</h3>
+          <p class="desc">Оставьте контакты — перезвоним в течение 15 минут и согласуем выезд инженера.</p>
+          <form id="leadForm" onsubmit="return handleSubmit(event)">
+            <div class="field"><label>Имя</label><input type="text" required placeholder="Как к вам обращаться"></div>
+            <div class="field"><label>Телефон</label><input type="tel" required placeholder="+7 (___) ___-__-__"></div>
+            <div class="field"><label>Желаемая площадь</label><input type="text" placeholder="Например, 50–80 м²"></div>
+            <button type="submit" class="btn btn-gold">Записаться на консультацию <i class="fa-solid fa-arrow-right"></i></button>
+          </form>
+          <p class="form-note">Нажимая кнопку, вы соглашаетесь с политикой обработки персональных данных</p>
+        </div>
+        <div class="form-success" id="formSuccess">
+          <i class="fa-solid fa-circle-check"></i>
+          <h3>Заявка принята</h3>
+          <p>Михаил свяжется с вами в течение 15 минут.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="logo" style="margin-bottom:18px;"><i class="fa-solid fa-fire"></i> ТИМЧЕНКО &amp; НАЧАЛЬНИК</div>
+        <p style="max-width:280px;">Строительная мастерская премиальных бань полного цикла в Подмосковье. С 2014 года.</p>
+        <div class="social-row">
+          <a href="#"><i class="fa-brands fa-telegram"></i></a>
+          <a href="#"><i class="fa-brands fa-whatsapp"></i></a>
+          <a href="#"><i class="fa-brands fa-instagram"></i></a>
+          <a href="#"><i class="fa-brands fa-vk"></i></a>
+        </div>
+      </div>
+      <div>
+        <h4>Навигация</h4>
+        <a href="#projects">Проекты</a>
+        <a href="#advantages">Преимущества</a>
+        <a href="#calculator">Калькулятор</a>
+        <a href="#process">Этапы работы</a>
+      </div>
+      <div>
+        <h4>Контакты</h4>
+        <a href="tel:+74950000000">+7 (495) 000-00-00</a>
+        <a href="mailto:info@timchenko-banya.ru">info@timchenko-banya.ru</a>
+        <p>Московская область, Новорижское ш., 24 км</p>
+      </div>
+      <div>
+        <h4>Производство</h4>
+        <div class="footer-map">
+          <i class="fa-solid fa-location-dot"></i>
+          <span>Подмосковье, выезд по всей области</span>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Тимченко &amp; Начальник. Все права защищены.</span>
+      <span>Политика конфиденциальности</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+// Header scroll state
+const header = document.getElementById('siteHeader');
+window.addEventListener('scroll', () => {
+  header.classList.toggle('scrolled', window.scrollY > 40);
+});
+
+// Reveal on scroll
+const revealEls = document.querySelectorAll('.reveal');
+const io = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.classList.add('visible');
+      io.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.12 });
+revealEls.forEach(el => io.observe(el));
+
+// ===== Calculator =====
+const state = { size: 30, base: 2200000, material: 1, package: 1 };
+
+function selectOption(el) {
+  const group = el.parentElement;
+  group.querySelectorAll('.option').forEach(o => o.classList.remove('selected'));
+  el.classList.add('selected');
+}
+
+document.querySelectorAll('[data-group="size"] .option').forEach(opt => {
+  opt.addEventListener('click', () => {
+    selectOption(opt);
+    state.base = parseFloat(opt.dataset.base);
+    document.getElementById('sumSize').textContent = opt.textContent;
+    updatePrice();
+  });
+});
+document.querySelectorAll('[data-group="material"] .option').forEach(opt => {
+  opt.addEventListener('click', () => {
+    selectOption(opt);
+    state.material = parseFloat(opt.dataset.mult);
+    document.getElementById('sumMaterial').textContent = opt.dataset.value;
+    updatePrice();
+  });
+});
+document.querySelectorAll('[data-group="package"] .option').forEach(opt => {
+  opt.addEventListener('click', () => {
+    selectOption(opt);
+    state.package = parseFloat(opt.dataset.mult);
+    document.getElementById('sumPackage').textContent = opt.dataset.value;
+    updatePrice();
+  });
+});
+
+function updatePrice() {
+  const total = Math.round((state.base * state.material * state.package) / 1000) * 1000;
+  const priceEl = document.getElementById('calcPrice');
+  priceEl.style.opacity = 0;
+  setTimeout(() => {
+    priceEl.textContent = total.toLocaleString('ru-RU') + ' ₽';
+    priceEl.style.opacity = 1;
+  }, 150);
+}
+updatePrice();
+
+// ===== Form =====
+function handleSubmit(e) {
+  e.preventDefault();
+  document.getElementById('formStep').style.display = 'none';
+  document.getElementById('formSuccess').style.display = 'block';
+  return false;
+}
+</script>
+</body>
+</html>
